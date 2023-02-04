@@ -19,8 +19,7 @@ public class BaseTest {
 			if(properties.getProperty("browser").equalsIgnoreCase("chrome")){
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
-				driver.get("https://www.flipkart.com/");
-				
+				driver.get("https://www.flipkart.com/");				
 			}
 		}
 		

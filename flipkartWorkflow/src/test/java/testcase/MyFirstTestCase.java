@@ -4,19 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import base.*;
 
 
-
-public class MyFirstTestCase {
-	
-	public static void main(String[] args) {
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.flipkart.com/");
-		driver.findElement(By.xpath("//button[@class='_2KpZ6l _2doB4z']"));
-		driver.findElement(By.linkText("Login"));
-		driver.findElement(By.name("q")).sendKeys("SMARTPHONE",Keys.ENTER);
+public class MyFirstTestCase extends BaseTest{
+	@Test
+	public static void main(String[] args) throws InterruptedException {
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(locatorProp.getProperty("click_Cross_button"))).click();
+		driver.findElement(By.name(locatorProp.getProperty("search_Product"))).sendKeys("SMARTPHONE",Keys.ENTER);//search_Product
 	}
 }

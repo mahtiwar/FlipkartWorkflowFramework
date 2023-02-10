@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.*;
 import org.testng.annotations.BeforeTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -17,7 +18,7 @@ public class BaseTest {
 	public static Properties locatorProp = new Properties();
 	public static FileReader fr;
 	public static FileReader fr_loc;
-	@BeforeTest
+	@BeforeMethod
 	public void setUp() throws IOException {
 		if(driver==null) {
 			
@@ -34,7 +35,7 @@ public class BaseTest {
 			}
 		}		 
 	
-	@AfterTest
+	@AfterMethod
 	public void tearDown() {
 		driver.close();		
 		System.out.println("TearDown Successful");
